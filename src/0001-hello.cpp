@@ -14,3 +14,10 @@ int main() {
 // void main() {
 //   cout << "Hello world!" << endl;
 // }
+
+/*
+ 
+Generally it's a standard of many compilators to use int main() <- this is a very special function and we just should stick to it :-)
+Only few of them allow to use void main (..probably Visual).
+
+*/
