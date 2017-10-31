@@ -17,13 +17,56 @@ int main() {
 
   string text = "I fricking love potatos!";
 
+
   int g = 1234567890; // 12345678901 too long
   // int h = 4294967295; // too big for int!
   // int h = 2147483648; // too big for int!
   int h = 2147483647; // max for int
   int i = -2147483648; // min for int
+
+//###########
+//  Data types have their range:
+//  https://en.wikibooks.org/wiki/C%2B%2B_Programming/Programming_Languages/C%2B%2B/Code/Statements/Variables/Type/Data_Types
+//  for bigger numbers you can try adding "unsigned" or "long" or both or "long long".... depending how much memory you want to use for it.
+//###########
+
   char j = 99; // is `99` the same as `'c'`?
   // string k = 99999; // compiler didn't like this one
+
+//###########
+//  of course.
+//  to define a string variable you need to use ""
+//  e.g.
+    string k = "99999";
+//  if you wanna play with defining chars inside string using numbers like above (char j = 99;)
+//  you can use another type: "an array of chars" which is also often used like 'string'
+
+    char ciag_znak[ 13 ] = { 'P', 'o', 'T', 'a', 'T', 'o', 'S', ' ' , '<', '3', ' ' , 99, '\0' };
+    char wyraz[ 50 ];
+
+    cout << "Write some text: ";
+    cin >> wyraz;
+    cout << "Your text: \"" << wyraz
+    << "\"" << endl;
+
+    cout << "Text about Potatos: \""
+    << ciag_znak
+    << "\"" << endl;
+
+//###########
+
+// And some other ways of declaring it:
+
+    //declaration of the array with a string
+    char ciag_znak2[ 10 ] = "123 - C++";
+
+    //compiler automatically calculate the size! :D
+    char wyraz2[] = "Potatos and burritos ;) ...";
+
+    cout << ciag_znak2 << endl;
+    cout << wyraz2 << endl;
+
+
 
   cout << a << endl;
   cout << b << endl;
@@ -37,13 +80,6 @@ int main() {
   cout << i << endl;
   cout << j << endl;
   cout << k << endl;
-}
-
-// Questions:
-//
-// - why use `cout << k << endl;` to print?  Isn't there just a pring command?
-// - if you can use an int w/o singlequotes for char value,
-//   is thare a list of numbers you can use for string?
 
 // Self study:
 //
@@ -89,7 +125,14 @@ int main() {
 //     0
 //
 // It's interesting the compile issues warnings, instead of failing to compile at all.
-//
+
+//######
+// agree,it's interesting, but it's ok. It just get a value (number) of 4 bytes [you can try this: sizeof(int)] in RAM memory
+// and if you don't define it, it has the value stored earlier in the memory.
+// ...so it would be a one way to create a memory's sniffer/spy :-)
+// ... but maybe later ;)
+//######
+
 // -------------------
 //
 // Making `int b` a float...
@@ -113,6 +156,9 @@ int main() {
 //
 //    -0.123
 //
+
+//### that's right
+
 // -------------------
 //
 // Assigned a variable, but didn't used it, and got a compiler warning
@@ -121,6 +167,9 @@ int main() {
 //     src/0002-data-types.cpp:9:8: warning: unused variable 'd' [-Wunused-variable]
 //       char d = 'd';
 //
+
+//#### that's super nice. So you can optimize your programme by removing un used vars
+
 // -------------------
 //
 // I tried using single quotes for the string, and got a whole bunch of warnings,
@@ -156,9 +205,18 @@ int main() {
 // I added another variable afterwards, and that variable didn't get printed.
 // So...  use double quotes w/ strings :)
 //
+
+//######## perfecto :D
+
 // -------------------
 //
 // Played w/ min & max values for int.  Looks like int is 32 bit!
 //
 // -------------------
 //
+
+//####### hehe you can always check the range on the Internet of use the following function sizeof(int) to check how many bytes it takes.
+
+cout << "\n\n sizeof(int) function: " << sizeof(int);
+
+}
