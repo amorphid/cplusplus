@@ -39,6 +39,12 @@ int main() {
   cout << k << endl;
 }
 
+// Questions:
+//
+// - why use `cout << k << endl;` to print?  Isn't there just a pring command?
+// - if you can use an int w/o singlequotes for char value,
+//   is thare a list of numbers you can use for string?
+
 // Self study:
 //
 // - read about iostream: https://en.wikipedia.org/wiki/Input/output_(C%2B%2B)
