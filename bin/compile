@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eux
+
 src="${1}"
 src_len=${#src}
 tgt_len=$(( src_len - 4 ))
