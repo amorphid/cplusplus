@@ -31,6 +31,8 @@ int main () {
 
   //---HOMEWORK 1---//
 
+  count << "-----Printing odd numbers in range 50 to 200-----"
+
   for (int l = 51 ; l < 200 ; l += 2) {
       cout << l << endl; // odds number from 51 to 199
   }
