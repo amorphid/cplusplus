@@ -29,20 +29,5 @@ int main () {
 
   cout << k << endl; // 99
 
-  //---HOMEWORK 1---//
-
-  count << "-----Printing odd numbers in range 50 to 200-----"
-
-  for (int l = 51 ; l < 200 ; l += 2) {
-      cout << l << endl; // odds number from 51 to 199
-  }
-
-  //---HOMEWORK 2---//
-
-  for (int m = 7 ; m <= 700 ; m += 7) {
-      cout << m << endl; // multiples of 7 in range 7 to 700
-  }
-
   return 0;
-
 }
