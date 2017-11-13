@@ -16,6 +16,8 @@ int main() {
     i = j;
     j = sum;
   } while (sum < 1000000); // is requiremet last before or first after 1_000_000?
+  // if the condition is true, e.g. for  999 999 the code do{} is executed
 
+  
   return 0;
 }
