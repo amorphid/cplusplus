@@ -1,0 +1,29 @@
+string find_the_way(vector<Costs> &costs)
+{
+	string result;
+	
+	// start creating the way from the end
+	result += to_string(costs.back().get_destination());
+	result += " <- ";
+	int parent = costs.back().get_parent();				
+	int destination = costs.back().get_destination();	
+	set<int> my_set = costs.back().get_intermediate_set();
+	my_set.erase(parent);									
+	
+	vector<Costs>::iterator it = costs.end();
+
+	while (it != costs.begin())
+	{
+		it--;
+		if (it->get_destination() == parent && it->get_intermediate_set() == my_set)
+		{
+			destination = it->get_destination();
+			result += to_string(destination);	
+			result += " <- ";					
+			parent = it->get_parent();			
+			my_set.erase(parent);				
+		}
+	}
+	result += to_string(costs.back().get_destination());
+	return result;
+}
