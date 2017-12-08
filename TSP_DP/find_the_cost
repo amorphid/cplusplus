@@ -1,0 +1,4 @@
+string find_the_cost(vector<Costs> &costs)
+{
+	return to_string(costs.back().get_cost());
+}
