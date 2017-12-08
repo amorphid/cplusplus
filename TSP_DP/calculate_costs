@@ -1,0 +1,37 @@
+void calculate_costs_vector(vector<Costs> &costs, int** tab_costs)
+{
+	for (Costs &object : costs)
+	{
+		int min_cost = INF;
+		int best_parent = 0;
+
+		// if the intermediate_set is empty take into account only the cost between the city and 0 - so directly from the table
+		if (object.get_intermediate_set().empty())
+		{
+			min_cost = tab_costs[0][object.get_destination()];	
+			best_parent = 0;
+		}
+		else
+		{
+			for (int city : object.get_intermediate_set())				
+			{
+				// === cost 1:
+				int cost1 = tab_costs[city][object.get_destination()];		
+				
+			    // === cost 2:
+				set<int> set_without_current_city = object.get_intermediate_set();		
+				set_without_current_city.erase(city);
+				int cost2 = find_cost_to_city_from_0(Costs(city, set_without_current_city), costs);	
+				
+				// comapre the sum (cost1 + cost2) to min_cost, and choose the less value
+				if ((cost1 + cost2) <= min_cost)
+				{
+					min_cost = (cost1 + cost2);
+					best_parent = city;
+				}
+			}
+		}
+		object.set_cost(min_cost);
+		object.set_parent(best_parent);
+	}
+}
